@@ -5,8 +5,7 @@ from rest_framework.views import APIView
 from django.http import Http404
 from .serializers import *
 from .models import *
-from rest_framework import status
-
+from rest_framework import status, filters, generics	
 
 # Create your views here.
 class AddProduct(APIView):
@@ -49,3 +48,9 @@ class DeleteProduct(APIView):
 		product.delete()
 		return Response(status=status.HTTP_204_NO_CONTENT)
 	 
+class TextSearch(generics.ListAPIView):
+	queryset = Product.objects.all()
+	serializer_class = ProductSerializer
+	filter_backends = [filters.SearchFilter]
+	search_fields = ['name']
+ 	 
