@@ -54,3 +54,8 @@ class TextSearch(generics.ListAPIView):
 	filter_backends = [filters.SearchFilter]
 	search_fields = ['name']
  	 
+class SearchCategory(generics.ListAPIView):
+	queryset = Product.objects.all()
+	serializer_class = ProductSerializer
+	filter_backends = [filters.SearchFilter]
+	search_fields = ['categories__id'] 	 

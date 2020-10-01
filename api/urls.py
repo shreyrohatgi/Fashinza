@@ -7,5 +7,6 @@ urlpatterns = [
 	path('add/', views.AddProduct.as_view(), name='add-product'),
 	path('edit/<int:pk>/', views.EditProduct.as_view(), name='edit-product'),
 	path('delete/<int:pk>/', views.DeleteProduct.as_view(), name='delete-product'),
-	path('search/', TextSearch.as_view(), name='text-search'),
+	path('products/', TextSearch.as_view(), name='text-search'),
+	path('categories/', SearchCategory.as_view(), name='categoty-search')
 ]
