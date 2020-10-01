@@ -1,0 +1,7 @@
+env
+*.pyc
+media
+debug.log
+requirements.txt.save
+app/static
+debug.log
